@@ -2,9 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ExLibris.Contracts.Constants.GeneralConstants;
+using ExLibris.Contracts.Entities;
+using ExLibris.Extensions;
+using ExLibris.Infrastructure.AppContext.Persistance;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -12,13 +19,40 @@ namespace ExLibris
 {
     public class Startup
     {
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        public IConfiguration Configuration { get; }
+
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+        
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString(GeneralApiConstants.Configuration_DbConnection)));
+
+            services.AddIdentityCore<Person>(options =>
+            {
+                options.Tokens.PasswordResetTokenProvider = TokenOptions.DefaultEmailProvider;
+                options.User.RequireUniqueEmail = true;
+            })
+                .AddDefaultTokenProviders()
+                .AddEntityFrameworkStores<AppDbContext>();
+
+            services.ConfigureInfrastructureServices();
+
+            services.AddControllers();
+
+            services.ConfigureAuthentication(Configuration);
+
+            services.ConfigureCors(Configuration);
+
+            services.ConfigureSwagger(Configuration);
+
+            services.ConfigureMapping();
+
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -28,12 +62,21 @@ namespace ExLibris
 
             app.UseRouting();
 
+            app.UseSwagger();
+
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint(Configuration[GeneralApiConstants.Configuration_SwaggerEndpoint],
+                    string.Concat(GeneralApiConstants.SwaggerApiTitle, " ", GeneralApiConstants.SwaggerApiVersion));
+            });
+
+            app.UseAuthentication();
+
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapControllers();
             });
         }
     }

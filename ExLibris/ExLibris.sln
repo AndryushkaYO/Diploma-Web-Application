@@ -3,7 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExLibris", "ExLibris\ExLibris.csproj", "{1AED94CF-FF64-496A-BFDC-EAF5F130BDC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExLibris", "ExLibris\ExLibris.csproj", "{1AED94CF-FF64-496A-BFDC-EAF5F130BDC2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{AC4A170C-8F46-4299-8150-EBEC533A81B5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API Business logic", "API Business logic", "{7AE7E743-8107-4CF8-8C50-2B8C8A80C08E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API Contracts", "API Contracts", "{7BC88442-FAFE-4D00-AE61-29619D6408CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API Infrustructure", "API Infrustructure", "{E9627DF5-E1F4-4216-A22E-51520976DAB8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{47398154-DC23-4EC0-ADEB-22552DC47D56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExLibris.BusinessLogic", "ExLibris.BusinessLogic\ExLibris.BusinessLogic.csproj", "{4C10895F-8B97-4026-9D29-A05B99C4367A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExLibris.Contracts", "ExLibris.Contracts\ExLibris.Contracts.csproj", "{89213F8B-2367-4458-96FE-7606F7864B3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExLibris.Infrastructure.AppContext", "ExLibris.Infrastructure.AppContext\ExLibris.Infrastructure.AppContext.csproj", "{5C89C2E4-AA60-4C06-8CB9-335D92A4A47C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExLibris.Infrastructure.Services", "ExLibris.Infrastructure.Services\ExLibris.Infrastructure.Services.csproj", "{489C8364-4CE7-4A16-BC9E-331659A978EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExLibris.BusinessLogic.Tests", "ExLibris.BusinessLogic.Tests\ExLibris.BusinessLogic.Tests.csproj", "{78B5B529-7021-48E3-BDF1-1FF6B0E39A67}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +35,37 @@ Global
 		{1AED94CF-FF64-496A-BFDC-EAF5F130BDC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AED94CF-FF64-496A-BFDC-EAF5F130BDC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AED94CF-FF64-496A-BFDC-EAF5F130BDC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C10895F-8B97-4026-9D29-A05B99C4367A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C10895F-8B97-4026-9D29-A05B99C4367A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C10895F-8B97-4026-9D29-A05B99C4367A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C10895F-8B97-4026-9D29-A05B99C4367A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89213F8B-2367-4458-96FE-7606F7864B3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89213F8B-2367-4458-96FE-7606F7864B3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89213F8B-2367-4458-96FE-7606F7864B3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89213F8B-2367-4458-96FE-7606F7864B3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C89C2E4-AA60-4C06-8CB9-335D92A4A47C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C89C2E4-AA60-4C06-8CB9-335D92A4A47C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C89C2E4-AA60-4C06-8CB9-335D92A4A47C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C89C2E4-AA60-4C06-8CB9-335D92A4A47C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{489C8364-4CE7-4A16-BC9E-331659A978EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{489C8364-4CE7-4A16-BC9E-331659A978EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{489C8364-4CE7-4A16-BC9E-331659A978EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{489C8364-4CE7-4A16-BC9E-331659A978EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78B5B529-7021-48E3-BDF1-1FF6B0E39A67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78B5B529-7021-48E3-BDF1-1FF6B0E39A67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78B5B529-7021-48E3-BDF1-1FF6B0E39A67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78B5B529-7021-48E3-BDF1-1FF6B0E39A67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1AED94CF-FF64-496A-BFDC-EAF5F130BDC2} = {AC4A170C-8F46-4299-8150-EBEC533A81B5}
+		{4C10895F-8B97-4026-9D29-A05B99C4367A} = {7AE7E743-8107-4CF8-8C50-2B8C8A80C08E}
+		{89213F8B-2367-4458-96FE-7606F7864B3E} = {7BC88442-FAFE-4D00-AE61-29619D6408CE}
+		{5C89C2E4-AA60-4C06-8CB9-335D92A4A47C} = {E9627DF5-E1F4-4216-A22E-51520976DAB8}
+		{489C8364-4CE7-4A16-BC9E-331659A978EF} = {E9627DF5-E1F4-4216-A22E-51520976DAB8}
+		{78B5B529-7021-48E3-BDF1-1FF6B0E39A67} = {47398154-DC23-4EC0-ADEB-22552DC47D56}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {78F52C98-0304-4007-BE54-9BCA7326CBCD}
