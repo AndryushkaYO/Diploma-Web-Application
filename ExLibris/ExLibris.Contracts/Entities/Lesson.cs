@@ -10,8 +10,9 @@ namespace ExLibris.Contracts.Entities
         public int TeacherSubjectId { get; set; }
         public TeacherSubject TeacherSubject { get; set; }
         public int ClassroomId { get; set; }
-        public ClassRoom Classroom { get; set; }
+        public Classroom Classroom { get; set; }
         public int MaterialId { get; set; }
         public Material Material { get; set; }
+        public ICollection<Mark> Marks { get; set; }
     }
 }

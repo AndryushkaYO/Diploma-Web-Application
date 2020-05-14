@@ -8,16 +8,15 @@ using System.Text;
 
 namespace ExLibris.Infrastructure.AppContext.Persistance.Configuration
 {
-    public class CategoryConfiguration :IEntityTypeConfiguration<Category>
+    public class RewardConfiguration : IEntityTypeConfiguration<Reward>
     {
-        public void Configure(EntityTypeBuilder<Category> builder)
+        public void Configure(EntityTypeBuilder<Reward> builder)
         {
-            builder.HasKey(c => c.Id);
+            builder.HasKey(r => r.Id);
 
-            builder.Property(c => c.Name)
+            builder.Property(r => r.Name)
                 .IsRequired()
-                .HasMaxLength(PropertyConstraints.CategoryNameLength);
-
+                .HasMaxLength(PropertyConstraints.RewardNameLength);
         }
     }
 }

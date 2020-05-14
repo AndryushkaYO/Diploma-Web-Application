@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ExLibris.Contracts.Interfaces.Repositories
 {
-    public interface IClassroomRepository : IRepository<ClassRoom>
+    public interface IClassroomRepository : IRepository<Classroom>
     {
     }
 }

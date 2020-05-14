@@ -8,15 +8,15 @@ using System.Text;
 
 namespace ExLibris.Infrastructure.AppContext.Persistance.Configuration
 {
-    public class CategoryConfiguration :IEntityTypeConfiguration<Category>
+    public class GradeConfiguration : IEntityTypeConfiguration<Grade>
     {
-        public void Configure(EntityTypeBuilder<Category> builder)
+        public void Configure(EntityTypeBuilder<Grade> builder)
         {
-            builder.HasKey(c => c.Id);
+            builder.HasKey(g => g.Id);
 
-            builder.Property(c => c.Name)
+            builder.Property(g => g.Name)
                 .IsRequired()
-                .HasMaxLength(PropertyConstraints.CategoryNameLength);
+                .HasMaxLength(PropertyConstraints.GradeNameLength);
 
         }
     }

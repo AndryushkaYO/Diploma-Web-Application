@@ -3,11 +3,12 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 namespace ExLibris.Infrastructure.AppContext.Persistance
 {
-    public class AppDbContext : IdentityDbContext
+    public class AppDbContext : IdentityDbContext<Teacher>
     {
         public AppDbContext(DbContextOptions options)
             : base(options)
@@ -15,7 +16,7 @@ namespace ExLibris.Infrastructure.AppContext.Persistance
         }
 
         public DbSet<Category> Categories { get; set; }
-        public DbSet<ClassRoom> Classrooms { get; set; }
+        public DbSet<Classroom> Classrooms { get; set; }
         public DbSet<Grade> Grades { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
         public DbSet<Mark> Marks { get; set; }
@@ -35,6 +36,7 @@ namespace ExLibris.Infrastructure.AppContext.Persistance
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }
